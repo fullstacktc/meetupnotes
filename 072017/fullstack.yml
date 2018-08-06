@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  mariadb:
+    image: mariadb:10.3
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: confluent
+      MYSQL_USER: confluent
+      MYSQL_PASSWORD: confluent
+    volumes:
+      - ./mysql:/var/lib/mysql
+      - ./mariadb-entry-point:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+      - /tmp:/tmp
+    expose:
+      - "3306"
+    restart: always
+
+  myapp:
+    image: michaelakopov/confluent:1.0
+    environment:
+      DEPLOYMENT_ENV: production
+    volumes:
+      - /tmp:/tmp
+    links:
+      - mariadb
+    ports:
+      - "127.0.0.1:80:80"
+    restart: always
+

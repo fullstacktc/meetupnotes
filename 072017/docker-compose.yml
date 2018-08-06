@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+  myapp:
+    image: michaelakopov/confluent:1.0
+    environment:
+      DEPLOYMENT_ENV: production
+    volumes:
+      - /tmp:/tmp
+    ports:
+      - "127.0.0.1:80:80"
+    restart: always
+
