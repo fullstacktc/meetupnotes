@@ -1,5 +1,5 @@
-# July 5, 2017 Notes
+# July 5, 2018 Notes
 
-Michael Akopov @makopov, gave a talk on docker, the basics of building images, pushing and running containers.
+**Title:** An Intro to Docker
 
-
+**Abstract:** Michael Akopov gave a introductory talk on Docker.
